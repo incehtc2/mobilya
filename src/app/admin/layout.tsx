@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LayoutGrid, Package, ShoppingCart, LogOut } from "lucide-react";
+import {  Package, ShoppingCart, LogOut } from "lucide-react";
 import { signOut } from "@/app/auth/actions";
 import { SITE_NAME } from "@/lib/constants";
 

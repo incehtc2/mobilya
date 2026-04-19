@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ImageUploader } from "./image-uploader";
 import { formatPrice } from "@/lib/utils";
-import { CATEGORIES } from "@/lib/constants";
-import { Tag, Package, FileText, DollarSign, Layers, Box, Star, AlertCircle, CheckCircle2, Eye } from "lucide-react";
+
+import { Tag, Package,  DollarSign, Layers,  Star, AlertCircle, CheckCircle2, Eye } from "lucide-react";
 import type { Category, Product } from "@/types";
 
 interface ProductFormProps {
@@ -245,20 +245,7 @@ export function ProductForm({ categories, action, product }: ProductFormProps) {
             </div>
           </FormSection>
 
-          {/* 3D Model */}
-          <FormSection icon={Box} title="3D Model (Opsiyonel)">
-            <Field label="GLB/GLTF URL" hint="Ürün detay sayfasında 3D görüntüleyici aktif olur.">
-              <input
-                name="model_url"
-                type="url"
-                defaultValue={product?.model_url || ""}
-                placeholder="https://example.com/model.glb"
-                className={inputCls}
-              />
-            </Field>
-          </FormSection>
-        </div>
-
+     
         {/* Right column */}
         <div className="space-y-6">
 
@@ -372,7 +359,7 @@ export function ProductForm({ categories, action, product }: ProductFormProps) {
               </button>
             </Link>
           </div>
-        </div>
+       </div> </div>
       </div>
     </form>
   );
