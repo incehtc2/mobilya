@@ -1,6 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
 import { ProductCard } from "@/components/catalog/product-card";
-import { formatPrice } from "@/lib/utils";
 import Link from "next/link";
 import { ArrowLeft, Tag } from "lucide-react";
 import type { Metadata } from "next";
@@ -8,12 +7,12 @@ import type { Product } from "@/types";
 
 export const metadata: Metadata = {
   title: "Kampanyalar — ARCA",
-  description: "Seçili premium mobilyalarda özel indirimler. Sınırlı süre, sınırlı stok.",
+  description:
+    "Seçili premium mobilyalarda özel indirimler. Sınırlı süre, sınırlı stok.",
 };
 
 export default async function KampanyalarPage() {
   let products: Product[] = [];
-  let totalSavings = 0;
 
   try {
     const supabase = await createClient();
@@ -26,10 +25,6 @@ export default async function KampanyalarPage() {
 
     if (data) {
       products = data as Product[];
-      totalSavings = products.reduce(
-        (acc, p) => acc + (p.price - (p.discount_price ?? p.price)),
-        0
-      );
     }
   } catch {
     // Supabase not configured
@@ -46,7 +41,11 @@ export default async function KampanyalarPage() {
         >
           <span
             className="font-display font-light text-cream whitespace-nowrap"
-            style={{ fontSize: "clamp(6rem,18vw,18rem)", opacity: 0.04, letterSpacing: "-0.02em" }}
+            style={{
+              fontSize: "clamp(6rem,18vw,18rem)",
+              opacity: 0.04,
+              letterSpacing: "-0.02em",
+            }}
           >
             İNDİRİM
           </span>
@@ -67,6 +66,7 @@ export default async function KampanyalarPage() {
                 <span className="h-1.5 w-1.5 rounded-full bg-red-400 animate-pulse" />
                 Özel Kampanya
               </p>
+
               <h1
                 className="font-display font-light text-cream leading-none"
                 style={{ fontSize: "clamp(3rem,6vw,6rem)" }}
@@ -78,8 +78,6 @@ export default async function KampanyalarPage() {
                 </span>
               </h1>
             </div>
-
-         
           </div>
         </div>
       </div>
@@ -87,9 +85,18 @@ export default async function KampanyalarPage() {
       <div className="mx-auto max-w-7xl px-6 lg:px-12 mt-16">
         {products.length === 0 ? (
           <div className="py-32 text-center">
-            <Tag size={40} strokeWidth={1} className="text-mist/30 mx-auto mb-6" />
-            <p className="font-display text-2xl font-light text-obsidian mb-3">Kampanya Yakında</p>
-            <p className="font-body text-sm text-mist mb-8">Şu an aktif kampanya bulunmuyor. Yeni indirimler için takipte kalın.</p>
+            <Tag
+              size={40}
+              strokeWidth={1}
+              className="text-mist/30 mx-auto mb-6"
+            />
+            <p className="font-display text-2xl font-light text-obsidian mb-3">
+              Kampanya Yakında
+            </p>
+            <p className="font-body text-sm text-mist mb-8">
+              Şu an aktif kampanya bulunmuyor. Yeni indirimler için takipte
+              kalın.
+            </p>
             <Link
               href="/koleksiyonlar"
               className="inline-flex items-center gap-2 bg-obsidian text-cream px-8 py-4 font-body text-[11px] tracking-widest uppercase hover:bg-charcoal transition-colors"
@@ -99,16 +106,6 @@ export default async function KampanyalarPage() {
           </div>
         ) : (
           <>
-            {/* Campaign badges strip */}
-            <div className="flex flex-wrap gap-3 mb-10">
-              {["Ücretsiz Kargo", "30 Gün İade", "Güvenli Ödeme", "Stoklar Sınırlı"].map((badge) => (
-                <span key={badge} className="font-body text-[10px] tracking-widest uppercase border border-cream-darker px-3 py-1.5 text-mist">
-                  {badge}
-                </span>
-              ))}
-            </div>
-
-            {/* Product grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-12">
               {products.map((product) => (
                 <ProductCard key={product.id} product={product} />

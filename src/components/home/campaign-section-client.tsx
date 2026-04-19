@@ -275,9 +275,9 @@ export function CampaignSectionClient({ products }: { products: Product[] }) {
               >
                 <p className="font-body text-[9px] tracking-[0.5em] uppercase text-mist/40 mb-3">Bu Sezon</p>
                 <p className="font-display text-2xl font-light text-cream/80 leading-snug">
-                  "Evinizi bir{" "}
+                  &quot;Evinizi bir{" "}
                   <span className="italic text-gold">sanat galerisine</span>{" "}
-                  dönüştüren parçalar"
+                  dönüştüren parçalar&quot;
                 </p>
                 <div className="mt-6 flex gap-6">
                   {[["%40'a kadar", "indirim"], ["Ücretsiz", "montaj"], ["30 Gün", "iade garantisi"]].map(([a, b]) => (
