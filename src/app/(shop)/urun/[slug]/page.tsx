@@ -83,19 +83,7 @@ export default async function UrunPage({ params }: { params: Promise<{ slug: str
               </p>
             )}
 
-            {/* Specs */}
-            <div className="border-t border-cream-darker pt-8 space-y-3">
-              {[
-                { label: "Stok", value: product.stock > 0 ? `${product.stock} adet` : "Tükendi" },
-                { label: "SKU", value: product.id.slice(0, 8).toUpperCase() },
-              ].map((s) => (
-                <div key={s.label} className="flex justify-between font-body text-sm">
-                  <span className="text-mist">{s.label}</span>
-                  <span className="text-obsidian">{s.value}</span>
-                </div>
-              ))}
-            </div>
-
+       
             {/* Quantity + Add */}
             <AddToCartButtonSection product={product} />
 
