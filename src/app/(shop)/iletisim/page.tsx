@@ -6,7 +6,7 @@ import { SplitText } from "@/components/shared/split-text";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
-import type { Metadata } from "next";
+
 
 const CONTACTS = [
   { icon: MapPin, label: "Adres", value: "Nişantaşı, Abdi İpekçi Cad. No:42, İstanbul" },

@@ -93,9 +93,10 @@ export function FeaturedCollections({ categories }: FeaturedCollectionsProps) {
         ))}
       </div>
 
-      {/* Mobile */}
-      <div className="md:hidden overflow-x-auto scrollbar-hide px-6">
-        <div className="flex gap-4 w-max">
+ 
+    {/* Mobile */}
+<div className="md:hidden px-6">
+  <div className="grid grid-cols-2 gap-4">
           {items.map((cat, i) => (
             <motion.div
               key={cat.slug}

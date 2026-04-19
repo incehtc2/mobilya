@@ -1,20 +1,12 @@
 import { notFound } from "next/navigation";
-import dynamic from "next/dynamic";
 import { createClient } from "@/lib/supabase/server";
 import { formatPrice } from "@/lib/utils";
-import { ImageGallery } from "@/components/product/image-gallery";
+
 import { AddToCartButton } from "@/components/product/add-to-cart-button";
-import { QuantitySelector } from "@/components/product/quantity-selector";
+
 import { ProductDetailClient } from "./product-detail-client";
 import type { Metadata } from "next";
 
-const ProductViewer3D = dynamic(
-  () => import("@/components/product/product-viewer-3d").then((m) => m.ProductViewer3D),
-  {
-    ssr: false,
-    loading: () => <div className="aspect-square bg-cream-dark animate-pulse" />,
-  }
-);
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;

@@ -20,7 +20,7 @@ export default function HakkimizdaPage() {
       <section className="relative min-h-[60vh] flex items-end overflow-hidden bg-obsidian">
         <div className="absolute inset-0">
           <Image
-            src="/images/mobilya/9.jpg"
+            src="/images/mobilya/1.jpg"
             alt="Atölyemiz"
             fill
             className="object-cover opacity-40"
@@ -68,7 +68,7 @@ export default function HakkimizdaPage() {
         <ParallaxSection offset={50}>
           <div className="relative aspect-[4/5]">
             <Image
-              src="/images/mobilya/1.jpg"
+              src="/images/mobilya/9.jpg"
               alt="Atölyemiz"
               fill
               className="object-cover"
@@ -83,7 +83,7 @@ export default function HakkimizdaPage() {
         <div className="mx-auto max-w-4xl px-6 lg:px-12">
           <h2 className="font-display text-4xl font-light text-cream mb-16">Kilometre Taşları</h2>
           <div className="space-y-12">
-            {TIMELINE.map((item, i) => (
+            {TIMELINE.map((item) => (
               <div key={item.year} className="grid grid-cols-[80px_1fr] gap-8 items-start">
                 <span className="font-display text-2xl text-gold font-light">{item.year}</span>
                 <div>
